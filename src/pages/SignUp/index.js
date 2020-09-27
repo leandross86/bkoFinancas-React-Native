@@ -14,10 +14,12 @@ export default function SignIn() {
   const [nome, setNome ] = useState('')
   const [email, setEmail ] = useState('')
   const [password, setPassword ] = useState('')
-  const { user } = useContext(AuthContext)
+  const { signUp } = useContext(AuthContext)
 
-  console.log(user.nome)
-
+  function handleSignUp(){
+    signUp(email, password, nome)
+  }
+  
   return (
     <Background>
       <Container
@@ -55,7 +57,7 @@ export default function SignIn() {
           />
         </AreaInput>
 
-        <SubmitButton>
+        <SubmitButton onPress={handleSignUp}>
           <SubmitText>Cadastrar</SubmitText>
         </SubmitButton>
 
