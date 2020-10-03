@@ -17,7 +17,7 @@ export const Nome = styled.Text`
 `
 
 export const Saldo = styled.Text`
-  margin-top: 5px
+  margin-top: 5px;
   font-size: 30px;
   color: #FFF;
   font-weight: bold;
