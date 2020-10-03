@@ -13,7 +13,7 @@ import {
 
 export default function Profile() {
   const navigation = useNavigation()
-  const { user, singOut } = useContext(AuthContext)
+  const { user, signOut } = useContext(AuthContext)
 
   return (
     <Container>
@@ -28,7 +28,7 @@ export default function Profile() {
         </NewText>
       </NewLink>
 
-      <Logout onPress={ () => singOut() }>
+      <Logout onPress={ () => signOut() }>
         <LogoutText>
           Sair
         </LogoutText>
