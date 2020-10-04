@@ -27,7 +27,7 @@ export default function HistoricoList({ data, deleteItem }) {
           </IconView>
         </Tipo>
         <ValorText>
-          R$ {data.valor} - {data.date}
+          R$ {data.valor}
         </ValorText>
       </Container>
     </TouchableWithoutFeedback>

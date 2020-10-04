@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Alert } from 'react-native'
 import firebase from '../../services/firebaseConnetion'
-import { format } from 'date-fns'
+import { format, isBefore } from 'date-fns'
 import { AuthContext } from '../../contexts/auth'
 import Header from '../../components/Header'
 import HistoricoList from '../../components/HistoricoList'
@@ -23,6 +23,8 @@ export default function Home() {
   const { user } = useContext(AuthContext)
   const uid = user && user.uid
 
+  const [newDate, setNewDate] = useState(new Date())
+
   useEffect(() => {
     async function loadList() {
       await firebase.database().ref('users').child(uid).on('value', (snapshot) =>{
@@ -30,7 +32,7 @@ export default function Home() {
       })
       await firebase.database().ref('historico')
         .child(uid)
-        .orderByChild('date').equalTo(format(new Date, 'dd/MM/yy'))
+        .orderByChild('date').equalTo(format(newDate, 'dd/MM/yyyy'))
         .limitToLast(10).on('value', (snapshot) => {
           setHistorico([])
           snapshot.forEach((childItem) => {
@@ -50,14 +52,25 @@ export default function Home() {
   }, [])
 
   function handleDelete(data) {
-    if(isPast(new Date(data.date))){
+    // Pegando data do item
+    const [ diaItem, mesItem, anoItem ] = data.date.split('/')
+    const dateItem = new Date(`${anoItem}/${mesItem}/${diaItem}`)
+    console.log(dateItem)
+
+    // Pegando data de hoje
+    const formatDiaHoje = format(new Date(), 'dd/MM/yyy')
+    const [ diaHoje, mesHoje, anoHoje ] = formatDiaHoje.split('/')
+    const dateHoje = new Date(`${anoHoje}/${mesHoje}/${diaHoje}`)
+    console.log(dateHoje)
+
+    if(isBefore(dateItem, dateHoje)){
       // Se a data do registro já passou vai entrar aqui
       alert('você não pode excluir um registro antigo!')
       return
     }
     Alert.alert(
       'Cuidado Atenção!',
-      `Você deseja excluir ${data.tipo} - Valor: ${data.valor}`
+      `Você deseja excluir ${data.tipo} - Valor: ${data.valor}`,
       [
         {
           text: 'Cancelar',
@@ -72,7 +85,7 @@ export default function Home() {
   }
 
   async function handleDeleteSuccess(data) {
-    await firabase.database().ref('histórico')
+    await firebase.database().ref('histórico')
     .child(uid).child(data.key).remove()
     .then(async () => {
       let saldoAtual = saldo
