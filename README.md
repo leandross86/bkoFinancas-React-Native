@@ -21,6 +21,8 @@
 <img src="./src/assets/Screenshots/8.jpeg"/>
 <img src="./src/assets/Screenshots/9.jpeg"/>
 <img src="./src/assets/Screenshots/4.jpeg"/>
+<img src="./src/assets/Screenshots/5.jpeg"/>
+<img src="./src/assets/Screenshots/6.jpeg"/>
   
 </p>
 
