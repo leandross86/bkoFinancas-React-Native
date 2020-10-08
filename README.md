@@ -43,7 +43,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 
 E também será preciso um editor, eu utilizo o <b>[VSCode](https://code.visualstudio.com/)</b>
 
-Clonar este repositório:
+### Clonar este repositório:
 
 `git clone https://github.com/leandross86/bkoFinancas-React-Native.git`
 
