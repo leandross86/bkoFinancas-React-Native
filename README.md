@@ -7,12 +7,12 @@
   <img alt="GitHub Language Count" src="https://img.shields.io/github/languages/count/leandross86/bkoFinancas-React-Native" />
   <img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/leandross86/bkoFinancas-React-Native" />
   <img alt="" src="https://img.shields.io/github/repo-size/leandross86/bkoFinancas-React-Native" />
+  <img alt="Standard - JavaScript Style Guide" src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg" />
   <img alt="GitHub Issues" src="https://img.shields.io/github/issues/leandross86/bkoFinancas-React-Native" />
   <img alt="GitHub Last Commit" src="https://img.shields.io/github/last-commit/leandross86/bkoFinancas-React-Native" />
   <img alt="Github License" src="https://img.shields.io/github/license/leandross86/bkoFinancas-React-Native" />
   <img alt="Github Star" src="https://img.shields.io/github/stars/leandross86/bkoFinancas-React-Native?style=social" />
   <img alt="Github Forks" src="https://img.shields.io/github/forks/leandross86/bkoFinancas-React-Native?style=social" />
-
 </p>
 <p>
 <img src="./src/assets/Screenshots/1.jpeg"/>

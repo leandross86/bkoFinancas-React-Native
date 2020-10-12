@@ -1,10 +1,10 @@
-import React, { useState, useContext } from 'react';
-import { 
-  Keyboard, 
-  SafeAreaView, 
-  TouchableWithoutFeedback, 
-  Alert 
-} from 'react-native';
+import React, { useState, useContext } from 'react'
+import {
+  Keyboard,
+  SafeAreaView,
+  TouchableWithoutFeedback,
+  Alert
+} from 'react-native'
 import { format } from 'date-fns'
 import { useNavigation } from '@react-navigation/native'
 import firebase from '../../services/firebaseConnetion'
@@ -15,25 +15,25 @@ import {
   Background,
   Input,
   SubmitButton,
-  SubmitText,
+  SubmitText
 } from './styles'
 import Picker from '../../components/Picker'
 
-export default function New() {
+export default function New () {
   const navigation = useNavigation()
 
   const [valor, setValor] = useState('')
   const [tipo, setTipo] = useState('receita')
   const { user: usuario } = useContext(AuthContext)
 
-  function handleSubmit() {
+  function handleSubmit () {
     Keyboard.dismiss()
-    if(isNaN(parseFloat(valor)) || tipo === null){
-      alert('Preencha todos os campos!')
+    if (isNaN(parseFloat(valor)) || tipo === null) {
+      Alert.alert('Alerta', 'Preencha todos os campos!')
       return
     }
-      Alert.alert(
-        'Confirmando dados',
+    Alert.alert(
+      'Confirmando dados',
         `Tipo ${tipo} - Valor: ${parseFloat(valor)}`,
         [
           {
@@ -45,21 +45,21 @@ export default function New() {
             onPress: () => handleAdd()
           }
         ]
-      )
+    )
   }
-  
-  async function handleAdd() {
-    let uid = usuario.uid
 
-    let key = await firebase.database().ref('historico').child(uid).push().key
+  async function handleAdd () {
+    const uid = usuario.uid
+
+    const key = await firebase.database().ref('historico').child(uid).push().key
     await firebase.database().ref('historico').child(uid).child(key).set({
       tipo: tipo,
       valor: parseFloat(valor),
-      date: format( new Date(), 'dd/MM/yyyy')
+      date: format(new Date(), 'dd/MM/yyyy')
     })
 
     // Atualizar saldo
-    let user = firebase.database().ref('users').child(uid)
+    const user = firebase.database().ref('users').child(uid)
     await user.once('value').then((snapshot) => {
       let saldo = parseFloat(snapshot.val().saldo)
 
@@ -77,7 +77,7 @@ export default function New() {
       <Background>
         <Header />
         <SafeAreaView style={{ alignItems: 'center' }}>
-          <Input 
+          <Input
             placeholder="Valor desejado"
             keyboardType="numeric"
             returnKeyType="next"
@@ -94,5 +94,5 @@ export default function New() {
         </SafeAreaView>
       </Background>
     </TouchableWithoutFeedback>
-  );
+  )
 }

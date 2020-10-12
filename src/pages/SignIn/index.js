@@ -2,11 +2,11 @@ import React, { useState, useContext } from 'react'
 import { Platform, ActivityIndicator } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { AuthContext } from '../../contexts/auth'
-import { 
-  Background, 
-  Container, 
-  Logo, 
-  AreaInput, 
+import {
+  Background,
+  Container,
+  Logo,
+  AreaInput,
   Input,
   SubmitButton,
   SubmitText,
@@ -14,15 +14,14 @@ import {
   LinkText
 } from './styles'
 
-export default function SignIn() {
+export default function SignIn () {
   const navigation = useNavigation()
 
-  const [email, setEmail ] = useState('')
-  const [password, setPassword ] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const { signIn, loadingAuth } = useContext(AuthContext)
 
-  
-  function handleLogin(){
+  function handleLogin () {
     signIn(email, password)
   }
 
@@ -35,7 +34,7 @@ export default function SignIn() {
         <Logo source={require('../../assets/Logo.png')}/>
 
         <AreaInput>
-          <Input 
+          <Input
             placeholder="Email"
             autoCorrect={false}
             autoCapitalize="none"
@@ -45,7 +44,7 @@ export default function SignIn() {
         </AreaInput>
 
         <AreaInput>
-          <Input 
+          <Input
             placeholder="Senha"
             autoCorrect={false}
             autoCapitalize="none"
@@ -73,8 +72,7 @@ export default function SignIn() {
           <LinkText>Criar uma conta!</LinkText>
         </Link>
 
-
       </Container>
     </Background>
-  );
+  )
 }

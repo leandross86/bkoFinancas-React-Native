@@ -1,9 +1,9 @@
-import React from 'react';
-import Icon from 'react-native-vector-icons/Feather';
+import React from 'react'
+import Icon from 'react-native-vector-icons/Feather'
 import { useNavigation } from '@react-navigation/native'
 import { Container, ButtonMenu } from './styles'
 
-export default function Header() {
+export default function Header () {
   const navigation = useNavigation()
   return (
     <Container>
@@ -11,5 +11,5 @@ export default function Header() {
         <Icon name="menu" color="#FFF" size={35}/>
       </ButtonMenu>
     </Container>
-  );
+  )
 }
