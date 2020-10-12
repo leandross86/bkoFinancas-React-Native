@@ -1,17 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import Header from '../../components/Header'
 import { AuthContext } from '../../contexts/auth'
-import { 
+import {
   Container,
   Nome,
   NewLink,
   NewText,
   Logout,
   LogoutText
- } from './styles';
+} from './styles'
 
-export default function Profile() {
+export default function Profile () {
   const navigation = useNavigation()
   const { user, signOut } = useContext(AuthContext)
 
@@ -34,5 +34,5 @@ export default function Profile() {
         </LogoutText>
       </Logout>
     </Container>
-  );
+  )
 }
