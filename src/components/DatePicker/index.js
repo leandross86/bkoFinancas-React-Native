@@ -31,5 +31,7 @@ export default function DatePicker ({ date, onClose, onChange }) {
 }
 
 DatePicker.propTypes = {
-  date: PropTypes.string.isRequired
+  date: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired
 }
