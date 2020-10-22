@@ -1,6 +1,7 @@
 import React from 'react'
 import { TouchableWithoutFeedback } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
+import PropTypes from 'prop-types'
 
 import {
   Container,
@@ -32,4 +33,9 @@ export default function HistoricoList ({ data, deleteItem }) {
       </Container>
     </TouchableWithoutFeedback>
   )
+}
+
+HistoricoList.propTypes = {
+  data: PropTypes.object.isRequired,
+  deleteItem: PropTypes.func.isRequired
 }

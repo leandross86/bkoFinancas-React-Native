@@ -9,7 +9,7 @@ import AsyncStorage from '@react-native-community/async-storage'
 
 export const AuthContext = createContext({})
 
-function AuthProvider ({ children }) {
+function AuthProvider ({ children }) { // eslint-disable-line
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
   const [loadingAuth, setLoadingAuth] = useState(false)

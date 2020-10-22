@@ -1,6 +1,7 @@
 import React from 'react'
 import { Picker as RNPickerSelect } from '@react-native-community/picker'
 import { PickerView } from './styles'
+import PropTypes from 'prop-types'
 
 export default function Picker ({ onChange, tipo }) {
   return (
@@ -17,4 +18,9 @@ export default function Picker ({ onChange, tipo }) {
       </RNPickerSelect>
     </PickerView>
   )
+}
+
+Picker.propTypes = {
+  tipo: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired
 }
