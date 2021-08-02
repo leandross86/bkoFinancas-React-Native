@@ -16,7 +16,7 @@
     "@react-native-community/picker": "^1.8.0",
     "@react-navigation/drawer": "^5.9.1",
     "@react-navigation/native": "^5.7.4",
-    "@react-navigation/stack": "^5.9.1",
+    "@react-navigation/stack": "^5.14.5",
     "babel-eslint": "^10.1.0",
     "date-fns": "^2.16.1",
     "eslint-config-standard": "^14.1.1",
